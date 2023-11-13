@@ -573,9 +573,9 @@ function App() {
         >
           <Sidebar gridArea="sidebar" background="brand">
             <Box pad="medium" gap="small">
-              <Avatar size="large" background="white">
+              {/* <Avatar size="large" background="white">
                 <User color="brand" />
-              </Avatar>
+              </Avatar> */}
               <Text color="white">MERLIN</Text>
             </Box>
           </Sidebar>
@@ -584,7 +584,7 @@ function App() {
               placeholder="Type something..."
               style={{ background: "white", marginBottom: "20px" }}
             />
-            <Grid columns={{ count: 4, size: "auto" }} gap="medium">
+            <Grid columns={{ count: 3, size: "auto" }} gap="medium">
               <Card background={"white"}>
                 <CardHeader
                   align="center"
