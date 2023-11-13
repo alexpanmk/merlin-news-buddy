@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import NewsList from "./News/NewsList";
 
 import useStore from "./UseStore";
 
@@ -584,23 +585,7 @@ function App() {
               placeholder="Type something..."
               style={{ background: "white", marginBottom: "20px" }}
             />
-            <Grid columns={{ count: 3, size: "auto" }} gap="medium">
-              <Card background={"white"}>
-                <CardHeader
-                  align="center"
-                  direction="row"
-                  flex={false}
-                  justify="between"
-                  gap="medium"
-                  pad="small"
-                >
-                  <Text weight="bold" size="large">
-                    Card title
-                  </Text>
-                </CardHeader>
-                <CardBody pad="small">Card body</CardBody>
-              </Card>
-            </Grid>
+            <NewsList />
           </Box>
         </Grid>
       </Grommet>
