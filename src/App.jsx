@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -560,6 +560,31 @@ const themeMerlin = {
 };
 
 function App() {
+  //SetNews from Store
+  const setNews = useStore((state) => state.setNews);
+
+  //Parameters for NewsAPI
+  const url = new URL("https://newsapi.org/v2/everything");
+
+  const params = new URLSearchParams({
+    apiKey: "b4eba0dedcfd485098362d7953d7edd4",
+    q: "bitcoin",
+    pageSize: 5,
+  });
+
+  url.search = params.toString();
+
+  //useEffect to fetch data from API
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setNews(data.articles);
+        console.log(data.articles);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <>
       <Grommet full theme={themeMerlin}>

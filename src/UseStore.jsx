@@ -1,8 +1,12 @@
 import create from "zustand";
 
 const useStore = create((set) => ({
-  // sample state
-  count: 0,
+  // State for NewsList
+  news: [],
+  setNews: (news) => set({ news }),
+  // State for SavedNewsList
+  savedNews: [],
+  setSavedNews: (savedNews) => set({ savedNews }),
 }));
 
 export default useStore;
