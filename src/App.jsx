@@ -3,9 +3,8 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-import NewsList from "./News/NewsList";
 import MainNavigation from "./Navigation/MainNavigation";
-import SearchBar from "./Dashboard/SearchBar";
+import Dashboard from "./Dashboard/Dashboard";
 
 import UseStore from "./UseStore";
 
@@ -614,7 +613,9 @@ function App() {
             </Box>
             <MainNavigation />
           </Sidebar>
-          <SearchBar />
+          <Box gridArea="main" pad="small">
+            <Dashboard />
+          </Box>
         </Grid>
       </Grommet>
     </>

@@ -1,8 +1,15 @@
 import React from "react";
-// To move all dashboard stuffs here
+import { TextInput } from "grommet";
+import NewsList from "../News/NewsList";
+import SearchBar from "./SearchBar";
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return (
+    <>
+      <SearchBar />
+      <NewsList />
+    </>
+  );
 };
 
 export default Dashboard;
