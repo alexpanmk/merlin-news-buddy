@@ -1,6 +1,6 @@
 import create from "zustand";
 
-const useStore = create((set) => ({
+const UseStore = create((set) => ({
   // State for NewsList
   news: [],
   setNews: (news) => set({ news }),
@@ -9,4 +9,4 @@ const useStore = create((set) => ({
   setSavedNews: (savedNews) => set({ savedNews }),
 }));
 
-export default useStore;
+export default UseStore;

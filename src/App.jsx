@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import NewsList from "./News/NewsList";
 
-import useStore from "./UseStore";
+import UseStore from "./UseStore";
 
 import {
   Grommet,
@@ -561,7 +561,7 @@ const themeMerlin = {
 
 function App() {
   //SetNews from Store
-  const setNews = useStore((state) => state.setNews);
+  const setNews = UseStore((state) => state.setNews);
 
   //Parameters for NewsAPI
   const url = new URL("https://newsapi.org/v2/everything");

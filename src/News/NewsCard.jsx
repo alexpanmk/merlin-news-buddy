@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardBody, CardHeader, Text } from "grommet";
 
-const NewsCard = () => {
+const NewsCard = ({ article }) => {
   return (
     <Card background={"white"}>
       <CardHeader
@@ -13,10 +13,10 @@ const NewsCard = () => {
         pad="small"
       >
         <Text weight="bold" size="large">
-          Card title
+          {article.title}
         </Text>
       </CardHeader>
-      <CardBody pad="small">Card body</CardBody>
+      <CardBody pad="small">{article.description}</CardBody>
     </Card>
   );
 };
