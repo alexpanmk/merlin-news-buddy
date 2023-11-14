@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+
 import NewsList from "./News/NewsList";
 import MainNavigation from "./Navigation/MainNavigation";
+import SearchBar from "./Dashboard/SearchBar";
 
 import UseStore from "./UseStore";
 
@@ -612,13 +614,7 @@ function App() {
             </Box>
             <MainNavigation />
           </Sidebar>
-          <Box gridArea="main" pad="small">
-            <TextInput
-              placeholder="Search News..."
-              style={{ background: "white", marginBottom: "20px" }}
-            />
-            <NewsList />
-          </Box>
+          <SearchBar />
         </Grid>
       </Grommet>
     </>
