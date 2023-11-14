@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
 import "./App.css";
 
 import MainNavigation from "./Navigation/MainNavigation";
 import Dashboard from "./Dashboard/Dashboard";
+import NewsLibrary from "./NewsLibrary/NewsLibrary";
+import NewsLab from "./NewsLab/NewsLab";
 
 import UseStore from "./UseStore";
 
@@ -602,9 +605,6 @@ function App() {
         >
           <Sidebar gridArea="sidebar" background="brand">
             <Box pad="medium" gap="small">
-              {/* <Avatar size="large" background="white">
-                <User color="brand" />
-              </Avatar> */}
               <Image
                 maxWidth="50px"
                 fit="contain"
@@ -614,7 +614,11 @@ function App() {
             <MainNavigation />
           </Sidebar>
           <Box gridArea="main" pad="small">
-            <Dashboard />
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/news-library" element={<NewsLibrary />} />
+              <Route path="/news-lab" element={<NewsLab />} />
+            </Routes>
           </Box>
         </Grid>
       </Grommet>
