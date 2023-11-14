@@ -1,5 +1,7 @@
 import React from "react";
-import { Card, CardBody, CardHeader, Text } from "grommet";
+import { Button, Card, CardBody, CardHeader, CardFooter, Text } from "grommet";
+
+import { Favorite, ShareOption } from "grommet-icons";
 
 const NewsCard = ({ article }) => {
   return (
@@ -17,6 +19,10 @@ const NewsCard = ({ article }) => {
         </Text>
       </CardHeader>
       <CardBody pad="small">{article.description}</CardBody>
+      <CardFooter pad={{ horizontal: "small" }} background="light-2">
+        <Button icon={<Favorite color="red" />} hoverIndicator />
+        <Button icon={<ShareOption color="plain" />} hoverIndicator />
+      </CardFooter>
     </Card>
   );
 };

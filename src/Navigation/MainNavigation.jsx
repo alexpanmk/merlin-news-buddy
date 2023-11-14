@@ -20,7 +20,7 @@ const MainNavigation = () => {
   return (
     <>
       <SidebarButton icon={<Projects />} label="Dashboard" />
-      <SidebarButton icon={<Archive />} label="Library" />
+      <SidebarButton icon={<Archive />} label="News Library" />
       <SidebarButton icon={<Nodes />} label="News Lab" />
     </>
   );
