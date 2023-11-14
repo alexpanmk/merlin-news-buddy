@@ -7,6 +7,9 @@ const UseStore = create((set) => ({
   // State for SavedNewsList
   savedNews: [],
   setSavedNews: (savedNews) => set({ savedNews }),
+  // State for SearchBar
+  search: "",
+  setSearch: (search) => set({ search }),
 }));
 
 export default UseStore;

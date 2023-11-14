@@ -23,6 +23,7 @@ import {
   Stack,
   Meter,
   Box,
+  Image,
   Sidebar,
   Avatar,
   TextInput,
@@ -603,7 +604,11 @@ function App() {
               {/* <Avatar size="large" background="white">
                 <User color="brand" />
               </Avatar> */}
-              <Text color="white">MERLIN</Text>
+              <Image
+                maxWidth="50px"
+                fit="contain"
+                src="src/assets/merlin-icon.png"
+              />
             </Box>
             <MainNavigation />
           </Sidebar>

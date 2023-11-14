@@ -1,4 +1,5 @@
 import React from "react";
+import SidebarButton from "./SidebarButton";
 
 import { Avatar, Button, Box, Nav, Stack, Text } from "grommet";
 
@@ -9,12 +10,20 @@ import {
   Configure,
   Help,
   Projects,
+  Archive,
+  Nodes,
   Split,
   StatusInfoSmall,
 } from "grommet-icons";
 
 const MainNavigation = () => {
-  return <div>MainNavigation</div>;
+  return (
+    <>
+      <SidebarButton icon={<Projects />} label="Dashboard" />
+      <SidebarButton icon={<Archive />} label="Library" />
+      <SidebarButton icon={<Nodes />} label="News Lab" />
+    </>
+  );
 };
 
 export default MainNavigation;
