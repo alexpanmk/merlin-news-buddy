@@ -614,7 +614,7 @@ function App() {
           </Sidebar>
           <Box gridArea="main" pad="small">
             <TextInput
-              placeholder="Type something..."
+              placeholder="Search News..."
               style={{ background: "white", marginBottom: "20px" }}
             />
             <NewsList />
