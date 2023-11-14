@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import NewsList from "./News/NewsList";
+import MainNavigation from "./Navigation/MainNavigation";
 
 import UseStore from "./UseStore";
 
@@ -604,6 +605,7 @@ function App() {
               </Avatar> */}
               <Text color="white">MERLIN</Text>
             </Box>
+            <MainNavigation />
           </Sidebar>
           <Box gridArea="main" pad="small">
             <TextInput
