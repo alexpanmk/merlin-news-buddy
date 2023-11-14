@@ -8,7 +8,7 @@ const UseStore = create((set) => ({
   savedNews: [],
   setSavedNews: (savedNews) => set({ savedNews }),
   // State for SearchBar
-  search: "",
+  search: "bitcoin",
   setSearch: (search) => set({ search }),
 }));
 

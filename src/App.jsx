@@ -566,15 +566,19 @@ const themeMerlin = {
 };
 
 function App() {
-  //SetNews from Store
-  const setNews = UseStore((state) => state.setNews);
+  //UseStore
+  const [setNews, search, setSearch] = UseStore((state) => [
+    state.setNews,
+    state.search,
+    state.setSearch,
+  ]);
 
   //Parameters for NewsAPI
   const url = new URL("https://newsapi.org/v2/everything");
 
   const params = new URLSearchParams({
     apiKey: "b4eba0dedcfd485098362d7953d7edd4",
-    q: "bitcoin",
+    q: search,
     pageSize: 5,
   });
 
@@ -589,7 +593,7 @@ function App() {
         console.log(data.articles);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [search]);
 
   return (
     <>
