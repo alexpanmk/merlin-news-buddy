@@ -2,10 +2,10 @@ import React from "react";
 import NewsCard from "./NewsCard";
 import { Grid } from "grommet";
 
-import UseStore from "../UseStore";
+import useStore from "../useStore";
 
 const NewsList = () => {
-  const [news, setNews] = UseStore((state) => [state.news, state.setNews]);
+  const [news, setNews] = useStore((state) => [state.news, state.setNews]);
 
   return (
     <>

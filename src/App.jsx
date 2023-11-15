@@ -9,7 +9,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import NewsLibrary from "./NewsLibrary/NewsLibrary";
 import NewsLab from "./NewsLab/NewsLab";
 
-import UseStore from "./UseStore";
+import useStore from "./useStore";
 
 import {
   Grommet,
@@ -566,8 +566,8 @@ const themeMerlin = {
 };
 
 function App() {
-  //UseStore
-  const [setNews, search, setSearch] = UseStore((state) => [
+  //useStore
+  const [setNews, search, setSearch] = useStore((state) => [
     state.setNews,
     state.search,
     state.setSearch,

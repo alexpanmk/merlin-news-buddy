@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { Accordion, AccordionPanel, Box } from "grommet";
-import UseStore from "../UseStore";
+import useStore from "../useStore";
 
 //To bring in savedNews from store and all corresponding methods
 
 const LibraryList = () => {
   //   const { animate, multiple, ...rest } = props;
 
-  const [savedNews, setSavedNews] = UseStore((state) => [
+  const [savedNews, setSavedNews] = useStore((state) => [
     state.savedNews,
     state.setSavedNews,
   ]);
