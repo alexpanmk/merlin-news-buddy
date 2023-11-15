@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useAirtableFetchData = (baseId, tableName) => {
+const useAirtableCRUD = (baseId, tableName) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -10,4 +10,4 @@ const useAirtableFetchData = (baseId, tableName) => {
   return data;
 };
 
-export default useAirtableFetchData;
+export default useAirtableCRUD;
