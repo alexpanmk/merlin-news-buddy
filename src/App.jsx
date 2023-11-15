@@ -577,7 +577,7 @@ function App() {
   const url = new URL("https://newsapi.org/v2/everything");
 
   const params = new URLSearchParams({
-    apiKey: "b4eba0dedcfd485098362d7953d7edd4",
+    apiKey: import.meta.env.VITE_NEWSAPI_API_KEY,
     q: search,
     pageSize: 12,
   });
