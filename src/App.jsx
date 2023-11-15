@@ -579,7 +579,7 @@ function App() {
   const params = new URLSearchParams({
     apiKey: "b4eba0dedcfd485098362d7953d7edd4",
     q: search,
-    pageSize: 5,
+    pageSize: 12,
   });
 
   url.search = params.toString();
