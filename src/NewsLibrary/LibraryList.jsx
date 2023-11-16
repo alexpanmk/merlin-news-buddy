@@ -6,10 +6,11 @@ import useAirtableCRUD from "../hooks/NewsLibrary/useAirtableCRUD";
 const LibraryList = () => {
   //Initiate the useAirtableCRUD hook
   const { data, createRecord, updateRecord, deleteRecord } = useAirtableCRUD(
-    import.meta.env.VITE_AIRTABLE_API_KEY,
     import.meta.env.VITE_AIRTABLE_BASE_ID,
     "SavedNews"
   );
+
+  console.log("data", data);
 
   return (
     <Box>

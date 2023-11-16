@@ -5,17 +5,21 @@ import { useState, useEffect } from 'react';
 const useAirtableCRUD = (baseId, tableName) => {
   const [data, setData] = useState([]);
 
-  const url = `https://api.airtable.com/v0/${baseId}/${tableName}?api_key=${process.env.REACT_APP_AIRTABLE_API_KEY}`;
+  const url = new URL(`https://api.airtable.com/v0/${baseId}/${tableName}`);
 
   //Read Operation
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(url);
-      const data = await response.json();
-      setData(data.records);
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_BEARER_TOKEN}`,
+        },
+      });
+      const loadData = await response.json();
+      setData(loadData.records);
     };
     fetchData();
-  }, [url]);
+  }, []);
 
   //Create Operation
   const createRecord = async (record) => {
@@ -55,7 +59,10 @@ const useAirtableCRUD = (baseId, tableName) => {
     setData(newData);
   };
 
-  return data;
+  const CRUDArray =  {data, createRecord, updateRecord, deleteRecord};
+  return CRUDArray;
+
+
 };
 
 export default useAirtableCRUD;
