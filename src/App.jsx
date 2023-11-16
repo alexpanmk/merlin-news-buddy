@@ -9,7 +9,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import NewsLibrary from "./NewsLibrary/NewsLibrary";
 import NewsLab from "./NewsLab/NewsLab";
 
-import UseStore from "./UseStore";
+import useStore from "./useStore";
 
 import {
   Grommet,
@@ -566,16 +566,20 @@ const themeMerlin = {
 };
 
 function App() {
-  //SetNews from Store
-  const setNews = UseStore((state) => state.setNews);
+  //useStore
+  const [setNews, search, setSearch] = useStore((state) => [
+    state.setNews,
+    state.search,
+    state.setSearch,
+  ]);
 
   //Parameters for NewsAPI
   const url = new URL("https://newsapi.org/v2/everything");
 
   const params = new URLSearchParams({
-    apiKey: "b4eba0dedcfd485098362d7953d7edd4",
-    q: "bitcoin",
-    pageSize: 5,
+    apiKey: import.meta.env.VITE_NEWSAPI_API_KEY,
+    q: search,
+    pageSize: 12,
   });
 
   url.search = params.toString();
@@ -589,7 +593,7 @@ function App() {
         console.log(data.articles);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [search]);
 
   return (
     <>
