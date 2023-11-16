@@ -1,26 +1,19 @@
 import React, { useEffect } from "react";
 import { Accordion, AccordionPanel, Box } from "grommet";
 import useStore from "../useStore";
-
-//To bring in savedNews from store and all corresponding methods
+import useAirtableCRUD from "../hooks/NewsLibrary/useAirtableCRUD";
 
 const LibraryList = () => {
-  //   const { animate, multiple, ...rest } = props;
-
-  const [savedNews, setSavedNews] = useStore((state) => [
-    state.savedNews,
-    state.setSavedNews,
-  ]);
-
-  useEffect(() => {
-    //To stub fetch logic for Airtable
-    setSavedNews();
-  }, []);
+  //Initiate the useAirtableCRUD hook
+  const { data, createRecord, updateRecord, deleteRecord } = useAirtableCRUD(
+    import.meta.env.VITE_AIRTABLE_API_KEY,
+    import.meta.env.VITE_AIRTABLE_BASE_ID,
+    "SavedNews"
+  );
 
   return (
     <Box>
       <Accordion>
-        {/* <Accordion animate={animate} multiple={multiple}> */}
         <AccordionPanel label="Panel 1">
           <Box background="light-2" overflow="auto" height="medium">
             <Box height="large" flex={false}>
