@@ -8,13 +8,14 @@ const useAirtableCRUD = (baseId, tableName) => {
   const url = new URL(`https://api.airtable.com/v0/${baseId}/${tableName}`);
 
   //Read Operation
+  //TODO: Idea to include some logic which only refetches data when there is a change in the data
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(url, {
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_BEARER_TOKEN}`,
         },
-      });
+      }); 
       const loadData = await response.json();
       setData(loadData.records);
     };
