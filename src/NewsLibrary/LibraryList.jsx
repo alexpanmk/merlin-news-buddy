@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Accordion, AccordionPanel, Box } from "grommet";
 import useStore from "../useStore";
-import useAirtableCRUD from "../hooks/NewsLibrary/useAirtableCRUD";
+import useAirtableCRUD from "../hooks/useAirtableCRUD";
 
 const LibraryList = () => {
   //Initiate the useAirtableCRUD hook
