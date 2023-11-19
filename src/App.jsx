@@ -11,6 +11,9 @@ import NewsLab from "./NewsLab/NewsLab";
 
 import useStore from "./useStore";
 
+//Hooks
+import useAirtableCRUD from "./hooks/useAirtableCRUD";
+
 import {
   Grommet,
   Button,
@@ -567,10 +570,22 @@ const themeMerlin = {
 
 function App() {
   //useStore
-  const [setNews, search, setSearch] = useStore((state) => [
+  const [
+    setNews,
+    search,
+    setSearch,
+    toggleSavedNewsInitialLoad,
+    savedNewsInitialLoad,
+    savedNews,
+    setSavedNews,
+  ] = useStore((state) => [
     state.setNews,
     state.search,
     state.setSearch,
+    state.toggleSavedNewsInitialLoad,
+    state.savedNewsInitialLoad,
+    state.savedNews,
+    state.setSavedNews,
   ]);
 
   //Parameters for NewsAPI
