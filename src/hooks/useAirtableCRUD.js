@@ -28,12 +28,13 @@ const useAirtableCRUD = (baseId, tableName) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_BEARER_TOKEN}`,
       },
-      body: JSON.stringify(record),
+      body: JSON.stringify({ fields: record }),
     });
-    const data = await response.json();
-    const newData = [...data.records, record];
-    setData(newData);
+    // const data = await response.json();
+    // const newData = [...data.records, record];
+    // setData(newData);
   }
   
   //Update Operation
