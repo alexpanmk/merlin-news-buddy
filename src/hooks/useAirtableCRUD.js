@@ -37,11 +37,14 @@ const useAirtableCRUD = (baseId, tableName) => {
   }
   
   //Update Operation
-  const updateRecord = async (id, record) => {
-    const response = await fetch(`${url}/${id}`, {
+  const updateRecord = async (record) => {
+    console.log(record);
+
+    const response = await fetch(url, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_BEARER_TOKEN}`,
       },
       body: JSON.stringify(record),
     });

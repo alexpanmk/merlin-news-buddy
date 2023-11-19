@@ -27,7 +27,7 @@ const SavedNewsAccordion = () => {
             key={news.id}
             label={news.fields.newsTitle}
             onClick={() => {
-              console.log("AccordionPanel onClick");
+              console.log(news.id);
             }}
           >
             <Tabs justify="start">
@@ -41,7 +41,7 @@ const SavedNewsAccordion = () => {
               </Tab>
               <Tab title="Content"></Tab>
               <Tab title="Actionable Insights">
-                <ActionableInsights news={news} />
+                <ActionableInsights news={news} updateRecord={updateRecord} />
               </Tab>
               <Tab title="Affinity Map"></Tab>
             </Tabs>
