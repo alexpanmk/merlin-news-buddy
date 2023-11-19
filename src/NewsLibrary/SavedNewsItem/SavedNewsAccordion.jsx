@@ -11,6 +11,8 @@ import {
 import useAirtableCRUD from "../../hooks/useAirtableCRUD";
 import useStore from "../../useStore";
 
+import ActionableInsights from "./AccordionPanel/ActionableInsights/ActionableInsights";
+
 const SavedNewsAccordion = () => {
   const { data, deleteRecord, updateRecord } = useAirtableCRUD(
     import.meta.env.VITE_AIRTABLE_BASE_ID,
@@ -39,20 +41,7 @@ const SavedNewsAccordion = () => {
               </Tab>
               <Tab title="Content"></Tab>
               <Tab title="Actionable Insights">
-                <TextArea
-                  placeholder="Type here to add your insights"
-                  value={news.fields.comment}
-                  onChange={(event) => {}}
-                />
-                <Box direction="row" gap="small">
-                  <Button
-                    label="Save"
-                    onClick={() => {
-                      updateRecord(news.id, { comment: news.fields.comment });
-                    }}
-                  />
-                  {/* <Button label="Clear" /> */}
-                </Box>
+                <ActionableInsights news={news} />
               </Tab>
               <Tab title="Affinity Map"></Tab>
             </Tabs>
