@@ -1,12 +1,12 @@
 import React from "react";
 import { Box } from "grommet";
-import LibraryList from "./LibraryList";
+import SavedNewsAccordion from "./SavedNewsItem/SavedNewsAccordion";
 
 const NewsLibrary = () => {
   return (
     <>
       <Box gridArea="main" pad="small">
-        <LibraryList />
+        <SavedNewsAccordion />
       </Box>
     </>
   );

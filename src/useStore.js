@@ -5,6 +5,10 @@ const useStore = create((set) => ({
   news: [],
   setNews: (news) => set({ news }),
 
+  //State for local SavedNews
+  savedNews: [],
+  setSavedNews: (savedNews) => set({ savedNews }),
+
   // State for SearchBar
   search: "bitcoin",
   setSearch: (search) => set({ search }),
