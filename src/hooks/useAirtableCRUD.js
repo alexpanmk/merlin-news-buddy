@@ -53,12 +53,16 @@ const useAirtableCRUD = (baseId, tableName) => {
 
   //Delete Operation
   const deleteRecord = async (id) => {
+
     const response = await fetch(`${url}/${id}`, {
       method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_BEARER_TOKEN}`,
+      },
     });
-    const data = await response.json();
-    const newData = data.records;
-    setData(newData);
+    // const data = await response.json();
+    // const newData = data.records;
+    // setData(newData);
   };
 
   const CRUDArray =  {data, createRecord, updateRecord, deleteRecord};

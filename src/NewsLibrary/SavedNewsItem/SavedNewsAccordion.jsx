@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Tabs, Tab, Box, Accordion, AccordionPanel } from "grommet";
+import { Button, Tabs, Tab, Box, Accordion, AccordionPanel } from "grommet";
 import useAirtableCRUD from "../../hooks/useAirtableCRUD";
 
 const SavedNewsAccordion = () => {
@@ -24,6 +24,11 @@ const SavedNewsAccordion = () => {
             <Tabs justify="start">
               <Tab title="Description">
                 <Box pad="medium">{savedNews.fields.newsDescription}</Box>
+                <Button
+                  pad={"10"}
+                  label="Delete"
+                  onClick={() => deleteRecord(savedNews.id)}
+                />
               </Tab>
               <Tab title="Content"></Tab>
               <Tab title="Actionable Insights"></Tab>
