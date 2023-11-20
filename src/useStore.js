@@ -9,7 +9,7 @@ const useStore = create((set) => ({
   airtableBase: import.meta.env.VITE_AIRTABLE_BASE,
   setAirtableBase: (airtableBase) => set({ airtableBase }),
 
-  openAIKey: import.meta.env.VITE_OPENAI_KEY,
+  openAIKey: import.meta.env.VITE_OPENAI_API_KEY,
 
 
   // State for NewsList

@@ -3,7 +3,7 @@ import SidebarButton from "./SidebarButton";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { Avatar, Button, Box, Nav, Stack, Text } from "grommet";
+import { Chat, Avatar, Button, Box, Nav, Stack, Text } from "grommet";
 
 import {
   Analytics,
@@ -35,6 +35,9 @@ const MainNavigation = () => {
       </StyledLink>
       <StyledLink to="/news-lab">
         <SidebarButton icon={<Nodes />} label="News Lab" />
+      </StyledLink>
+      <StyledLink to="/toggle-chat">
+        <SidebarButton icon={<Chat />} label="Toggle Chat" />
       </StyledLink>
     </>
   );
