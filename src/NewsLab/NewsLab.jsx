@@ -8,6 +8,7 @@ import ReactFlow, {
   useReactFlow,
   useNodesState,
 } from "reactflow";
+
 import "reactflow/dist/style.css";
 import "./style.css";
 import { Box } from "grommet";
@@ -36,6 +37,13 @@ const initialNodes = [
   },
 ];
 
+const templateNode = {
+  id: "3",
+  connectable: false,
+  data: { label: "TEST" },
+  position: { x: 100, y: 200 },
+};
+
 const initialEdges = [];
 
 const NewsLab = () => {
@@ -46,11 +54,37 @@ const NewsLab = () => {
     []
   );
 
+  //function to add node
+  const addNode = (flowX, flowY) => {
+    const newNode = templateNode;
+    newNode.position.x = flowX;
+    newNode.position.y = flowY;
+    setNodes((nodes) => [...nodes, newNode]);
+  };
+
+  //function to return screenToFlowPosition from mouse coordinates
+  const screenToFlowPosition = (mouseX, mouseY) => {
+    const flow = document.querySelector(".react-flow");
+    const flowRect = flow.getBoundingClientRect();
+    const flowX = mouseX - flowRect.left;
+    const flowY = mouseY - flowRect.top;
+    return { flowX: flowX, flowY: flowY };
+  };
+
   return (
     <Box height={"100%"} width={"100%"} background={"white"}>
       <ReactFlow
         nodes={nodes}
         onNodesChange={onNodesChange}
+        onClick={(event) => {
+          const mouseX = event.clientX;
+          const mouseY = event.clientY;
+          const { flowX, flowY } = screenToFlowPosition(mouseX, mouseY);
+          console.log("Flow coordinates:", flowX, flowY);
+          console.log("Mouse coordinates:", mouseX, mouseY);
+
+          addNode(flowX, flowY);
+        }}
         className="intersection-flow"
       >
         <Background />

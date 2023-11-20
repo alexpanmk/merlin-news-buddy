@@ -17,7 +17,7 @@
   .intersection-flow .react-flow__node:hover,
   .intersection-flow .react-flow__node:focus {
     box-shadow: 6px 6px 0 1px rgba(0, 0, 0, 0.7);
-    background-color: #eee;
+    background-color: #e4dad0;
   }
   
   .intersection-flow .react-flow__handle {
