@@ -38,7 +38,6 @@ const useAirtableCRUD = (baseId, tableName) => {
   
   //Update Operation
   const updateRecord = async (record) => {
-    console.log(record);
 
     const response = await fetch(url, {
       method: 'PATCH',
