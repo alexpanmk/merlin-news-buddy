@@ -3,7 +3,7 @@ import SidebarButton from "./SidebarButton";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { Chat, Avatar, Button, Box, Nav, Stack, Text } from "grommet";
+import { Avatar, Button, Box, Nav, Stack, Text } from "grommet";
 
 import {
   Analytics,
