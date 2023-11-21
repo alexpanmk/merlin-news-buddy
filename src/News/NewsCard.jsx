@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Card, CardBody, CardHeader, CardFooter, Text } from "grommet";
-import { Favorite, Link } from "grommet-icons";
+import { Save, Link } from "grommet-icons";
 import useAirtableCRUD from "../hooks/useAirtableCRUD";
 
 const handleSaveNews = () => {
@@ -45,7 +45,7 @@ const NewsCard = ({ article }) => {
       <CardFooter pad={{ horizontal: "small" }} background="light-2">
         <Button
           icon={
-            <Favorite
+            <Save
               color="red"
               onClick={() => {
                 createRecord({
