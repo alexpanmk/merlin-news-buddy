@@ -38,11 +38,9 @@ const useStore = create((set) => ({
   setNewsLibrary: (newsLibrary) => set({ newsLibrary }),
   
   //State for NewsLab
-  nodes: [],
-  setNodes: (nodes) => set({ nodes }),
-  newsLabInitialLoad: false,
-  toggleNewsLabInitialLoad: () => set((state) => ({ newsLabInitialLoad: !state.newsLabInitialLoad })),
-  setNewsLab: (newsLab) => set({ newsLab }),
+  newsLabNodes: [],
+  setNewsLabNodes: (newsLabNodes) => set({ newsLabNodes }),
+  
 
 
 }));

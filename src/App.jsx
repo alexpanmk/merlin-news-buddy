@@ -569,6 +569,9 @@ const themeMerlin = {
 };
 
 function App() {
+  //Top level react states for reactflow (temporary)
+  const [allNodes, setAllNodes] = useState([]);
+
   //useStore
   const [
     setNews,

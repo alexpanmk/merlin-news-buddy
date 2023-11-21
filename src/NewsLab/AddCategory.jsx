@@ -25,7 +25,7 @@ const AddCategory = ({ addCategoryNode }) => {
           <Button
             label="Clear"
             onClick={() => {
-              setCategoryName("");
+              setInputValue("");
             }}
           />
         </Box>

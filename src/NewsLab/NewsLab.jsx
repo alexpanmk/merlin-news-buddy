@@ -22,6 +22,8 @@ import { Box } from "grommet";
 //Child components
 import AddCategory from "./AddCategory";
 
+import useStore from "../useStore";
+
 const initialNodes = [
   {
     id: "1",
@@ -46,16 +48,14 @@ const initialNodes = [
   },
 ];
 
-const templateNode = {
-  id: "3",
-  connectable: false,
-  data: { label: "TEST" },
-  position: { x: 100, y: 200 },
-};
-
 const initialEdges = [];
 
 const NewsLab = () => {
+  const [newsLabNodes, setNewsLabNodes] = useStore((state) => [
+    state.newsLabNodes,
+    state.setNewsLabNodes,
+  ]);
+
   const [nodes, setNodes] = useState(initialNodes);
 
   const onNodesChange = useCallback(
@@ -80,8 +80,8 @@ const NewsLab = () => {
         minWidth: content.length * 10 + 50,
       },
     };
+    setNewsLabNodes((newsLabNodes) => [...newsLabNodes, newNode]);
     setNodes((nodes) => [...nodes, newNode]);
-    console.log(nodes);
   }
 
   //function to return screenToFlowPosition from mouse coordinates
