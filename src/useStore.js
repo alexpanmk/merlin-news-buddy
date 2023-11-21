@@ -1,5 +1,6 @@
 import create from "zustand";
 import useAirtableCRUD from "./hooks/useAirtableCRUD";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 const useStore = create((set) => ({
 
@@ -38,6 +39,7 @@ const useStore = create((set) => ({
   
   //State for NewsLab
   nodes: [],
+  setNodes: (nodes) => set({ nodes }),
   newsLabInitialLoad: false,
   toggleNewsLabInitialLoad: () => set((state) => ({ newsLabInitialLoad: !state.newsLabInitialLoad })),
   setNewsLab: (newsLab) => set({ newsLab }),
