@@ -8,10 +8,36 @@ import {
     applyEdgeChanges,
 } from 'reactflow';
 
-import initialNodes from './nodes';
-import initialEdges from './edges';
+// import initialNodes from './nodes';
+// import initialEdges from './edges';
 
-const useStore = create((set, get) => ({
+const initialNodes = [
+    {
+      id: "1",
+      connectable: false,
+      data: {
+        label: "Crypto Exchanges, Not Just FTX, Are All a Mess Right Now",
+      },
+      style: {
+        minwidth: 300,
+      },
+      position: { x: 100, y: 25 },
+    },
+    {
+      id: "2",
+      connectable: false,
+      type: "input",
+      data: { label: "Bitcoin jumps as ETF hopes drive the token to $30,000" },
+      position: { x: 100, y: 200 },
+      style: {
+        minwidth: 300,
+      },
+    },
+  ];
+  
+const initialEdges = [];
+
+const useRFStore = create((set, get) => ({
     nodes: initialNodes,
     edges: initialEdges,
     onNodesChange: (changes) => {
@@ -31,4 +57,4 @@ const useStore = create((set, get) => ({
     },
 }));
 
-export default useStore;
+export default useRFStore;
