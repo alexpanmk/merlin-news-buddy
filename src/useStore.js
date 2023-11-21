@@ -1,5 +1,6 @@
 import create from "zustand";
 import useAirtableCRUD from "./hooks/useAirtableCRUD";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 const useStore = create((set) => ({
 
@@ -28,6 +29,20 @@ const useStore = create((set) => ({
   // State for SearchBar
   search: "bitcoin",
   setSearch: (search) => set({ search }),
+
+  // State for NewsLibrary
+  newsLibrary: [],
+  newsLibraryInitialLoad: false,
+  newsLibraryInitialLoad: () => set((state) => ({ newsLibraryInitialLoad: !state.newsLibraryInitialLoad })),
+  toggleNewsLibraryInitialLoad: () => set((state) => ({ newsLibraryInitialLoad: !state.newsLibraryInitialLoad })),
+  setNewsLibrary: (newsLibrary) => set({ newsLibrary }),
+  
+  //State for NewsLab
+  newsLabNodes: [],
+  setNewsLabNodes: (newsLabNodes) => set({ newsLabNodes }),
+  
+
+
 }));
 
 export default useStore;

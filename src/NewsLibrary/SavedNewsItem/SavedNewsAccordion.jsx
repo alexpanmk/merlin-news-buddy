@@ -9,11 +9,14 @@ import {
   AccordionPanel,
 } from "grommet";
 import useAirtableCRUD from "../../hooks/useAirtableCRUD";
-import useStore from "../../useStore";
+
+//NewsLab RF store
+import useRFStore from "../../useRFStore";
 
 import ActionableInsights from "./AccordionPanel/ActionableInsights/ActionableInsights";
 
 const SavedNewsAccordion = () => {
+  const { nodes, addNode } = useRFStore();
   const { data, deleteRecord, updateRecord } = useAirtableCRUD(
     import.meta.env.VITE_AIRTABLE_BASE_ID,
     "SavedNews"
@@ -42,7 +45,21 @@ const SavedNewsAccordion = () => {
                   <Button
                     pad={"10"}
                     label="Send to News Lab"
-                    onClick={() => {}}
+                    onClick={() => {
+                      const newID = String(nodes.length + 1);
+                      const newNode = {
+                        id: newID,
+                        connectable: false,
+                        data: {
+                          label: news.fields.newsTitle,
+                        },
+                        style: {
+                          minwidth: 300,
+                        },
+                        position: { x: 100, y: 25 },
+                      };
+                      addNode(newNode);
+                    }}
                   />
                 </Box>
               </Tab>

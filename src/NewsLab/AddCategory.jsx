@@ -10,7 +10,7 @@ const AddCategory = ({ addCategoryNode }) => {
       <Box pad="medium">
         <Box direction="row" gap="small">
           <TextInput
-            placeholder="Type here to add a category"
+            placeholder="Type here to add a category post-it!"
             value={inputValue}
             onChange={(evt) => {
               setInputValue(evt.target.value);
@@ -25,7 +25,7 @@ const AddCategory = ({ addCategoryNode }) => {
           <Button
             label="Clear"
             onClick={() => {
-              setCategoryName("");
+              setInputValue("");
             }}
           />
         </Box>
