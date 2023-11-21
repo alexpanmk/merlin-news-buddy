@@ -64,25 +64,38 @@ const NewsLab = () => {
   );
 
   //function to add node
-  const addNode = (flowX, flowY) => {
-    const newNode = templateNode;
-    newNode.position.x = flowX;
-    newNode.position.y = flowY;
+  function addCategoryNode(content) {
+    const newNodeID = String(nodes.length + 1);
+
+    const newNode = {
+      id: newNodeID,
+      connectable: false,
+      data: { label: content },
+      position: { x: 100, y: 200 },
+      style: {
+        backgroundColor: "brown",
+        color: "white",
+        fontSize: "20px",
+        //width according to text length
+        minWidth: content.length * 10 + 50,
+      },
+    };
     setNodes((nodes) => [...nodes, newNode]);
-  };
+    console.log(nodes);
+  }
 
   //function to return screenToFlowPosition from mouse coordinates
-  const screenToFlowPosition = (mouseX, mouseY) => {
-    const flow = document.querySelector(".react-flow");
-    const flowRect = flow.getBoundingClientRect();
-    const flowX = mouseX - flowRect.left;
-    const flowY = mouseY - flowRect.top;
-    return { flowX: flowX, flowY: flowY };
-  };
+  // const screenToFlowPosition = (mouseX, mouseY) => {
+  //   const flow = document.querySelector(".react-flow");
+  //   const flowRect = flow.getBoundingClientRect();
+  //   const flowX = mouseX - flowRect.left;
+  //   const flowY = mouseY - flowRect.top;
+  //   return { flowX: flowX, flowY: flowY };
+  // };
 
   return (
     <Box height={"100%"} width={"100%"} background={"white"}>
-      <AddCategory />
+      <AddCategory addCategoryNode={addCategoryNode} />
       <ReactFlow
         nodes={nodes}
         onNodesChange={onNodesChange}
