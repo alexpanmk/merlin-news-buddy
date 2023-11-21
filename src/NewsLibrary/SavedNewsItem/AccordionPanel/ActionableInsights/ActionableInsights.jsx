@@ -4,12 +4,16 @@ import { Box } from "grommet";
 
 // import { updateRecord } from "../../../hooks/useAirtableCRUD";
 
-const ActionableInsights = ({ news }) => {
+const ActionableInsights = ({ news, updateRecord }) => {
   const [inputValue, setInputValue] = useState(news.fields.comment);
 
   return (
     <Box>
-      <InsightsInputBox inputValue={inputValue} />
+      <InsightsInputBox
+        news={news}
+        updateRecord={updateRecord}
+        inputValue={inputValue}
+      />
     </Box>
   );
 };

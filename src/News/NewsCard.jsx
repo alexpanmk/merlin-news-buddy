@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Card, CardBody, CardHeader, CardFooter, Text } from "grommet";
-import { Favorite, ShareOption } from "grommet-icons";
+import { Favorite, Link } from "grommet-icons";
 import useAirtableCRUD from "../hooks/useAirtableCRUD";
 
 const handleSaveNews = () => {
@@ -60,7 +60,7 @@ const NewsCard = ({ article }) => {
           }
           hoverIndicator
         />
-        <Button icon={<ShareOption color="plain" />} hoverIndicator />
+        <Button icon={<Link color="plain" />} hoverIndicator />
       </CardFooter>
     </Card>
   );

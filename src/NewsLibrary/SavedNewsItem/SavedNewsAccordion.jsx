@@ -27,21 +27,28 @@ const SavedNewsAccordion = () => {
             key={news.id}
             label={news.fields.newsTitle}
             onClick={() => {
-              console.log("AccordionPanel onClick");
+              console.log(news.id);
             }}
           >
             <Tabs justify="start">
               <Tab title="Description">
                 <Box pad="medium">{news.fields.newsDescription}</Box>
-                <Button
-                  pad={"10"}
-                  label="Delete"
-                  onClick={() => deleteRecord(news.id)}
-                />
+                <Box direction="row" pad="small" gap="small">
+                  <Button
+                    pad={"10"}
+                    label="Delete"
+                    onClick={() => deleteRecord(news.id)}
+                  />
+                  <Button
+                    pad={"10"}
+                    label="Send to News Lab"
+                    onClick={() => {}}
+                  />
+                </Box>
               </Tab>
               <Tab title="Content"></Tab>
               <Tab title="Actionable Insights">
-                <ActionableInsights news={news} />
+                <ActionableInsights news={news} updateRecord={updateRecord} />
               </Tab>
               <Tab title="Affinity Map"></Tab>
             </Tabs>
