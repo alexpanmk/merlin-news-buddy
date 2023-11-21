@@ -1,12 +1,10 @@
 import { create } from 'zustand';
 import {
-    Connection,
-    EdgeChange,
-    NodeChange,
     addEdge,
     applyNodeChanges,
     applyEdgeChanges,
 } from 'reactflow';
+import { useLocalStorage } from '@uidotdev/usehooks';
 
 // import initialNodes from './nodes';
 // import initialEdges from './edges';
@@ -39,6 +37,8 @@ const initialEdges = [];
 
 const useRFStore = create((set, get) => ({
     nodes: initialNodes,
+    //add node
+    addNode: (node) => set((state) => ({ nodes: [...state.nodes, node] })),
     edges: initialEdges,
     onNodesChange: (changes) => {
         set({

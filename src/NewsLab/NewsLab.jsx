@@ -5,14 +5,21 @@
 // UseLocalstorage to save lab state
 
 import React, { useState, useCallback } from "react";
-import ReactFlow, {
-  Controls,
-  Background,
-  applyNodeChanges,
-  applyEdgeChanges,
-  useReactFlow,
-  useNodesState,
-} from "reactflow";
+
+//ReactFlow stuffs
+import ReactFlow, { Controls, Background } from "reactflow";
+
+import useRFStore from "../useRFStore";
+import shallow from "zustand/shallow"; //TODO: To read up on shallow
+
+const selector = (state) => ({
+  nodes: state.nodes,
+  addNode: state.addNode,
+  edges: state.edges,
+  onNodesChange: state.onNodesChange,
+  onEdgesChange: state.onEdgesChange,
+  onConnect: state.onConnect,
+});
 
 //CSS Stuffs
 import "reactflow/dist/style.css";
@@ -22,15 +29,14 @@ import { Box } from "grommet";
 //Child components
 import AddCategory from "./AddCategory";
 
-import useStore from "../useStore";
-
 const NewsLab = () => {
-  const [nodes, setNodes] = useState(initialNodes);
+  const { nodes, addNode, edges, onNodesChange, onEdgesChange, onConnect } =
+    useRFStore(selector, shallow);
 
-  const onNodesChange = useCallback(
-    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
-    []
-  );
+  // const onNodesChange = useCallback(
+  //   (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+  //   []
+  // );
 
   //function to add node
   function addCategoryNode(content) {
@@ -49,8 +55,7 @@ const NewsLab = () => {
         minWidth: content.length * 10 + 50,
       },
     };
-    setNewsLabNodes((newsLabNodes) => [...newsLabNodes, newNode]);
-    setNodes((nodes) => [...nodes, newNode]);
+    addNode(newNode);
   }
 
   //function to return screenToFlowPosition from mouse coordinates
