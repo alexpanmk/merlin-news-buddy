@@ -28,6 +28,21 @@ const useStore = create((set) => ({
   // State for SearchBar
   search: "bitcoin",
   setSearch: (search) => set({ search }),
+
+  // State for NewsLibrary
+  newsLibrary: [],
+  newsLibraryInitialLoad: false,
+  newsLibraryInitialLoad: () => set((state) => ({ newsLibraryInitialLoad: !state.newsLibraryInitialLoad })),
+  toggleNewsLibraryInitialLoad: () => set((state) => ({ newsLibraryInitialLoad: !state.newsLibraryInitialLoad })),
+  setNewsLibrary: (newsLibrary) => set({ newsLibrary }),
+  
+  //State for NewsLab
+  nodes: [],
+  newsLabInitialLoad: false,
+  toggleNewsLabInitialLoad: () => set((state) => ({ newsLabInitialLoad: !state.newsLabInitialLoad })),
+  setNewsLab: (newsLab) => set({ newsLab }),
+
+
 }));
 
 export default useStore;
