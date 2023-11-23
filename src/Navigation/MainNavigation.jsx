@@ -5,18 +5,7 @@ import { Link } from "react-router-dom";
 
 import { Avatar, Button, Box, Nav, Stack, Text } from "grommet";
 
-import {
-  Analytics,
-  Chat,
-  Clock,
-  Configure,
-  Help,
-  Projects,
-  Archive,
-  Nodes,
-  Split,
-  StatusInfoSmall,
-} from "grommet-icons";
+import { Chat, Help, Projects, Archive, Nodes } from "grommet-icons";
 
 const MainNavigation = () => {
   const StyledLink = styled(Link)`
