@@ -8,6 +8,8 @@ import MainNavigation from "./Navigation/MainNavigation";
 import Dashboard from "./Dashboard/Dashboard";
 import NewsLibrary from "./NewsLibrary/NewsLibrary";
 import NewsLab from "./NewsLab/NewsLab";
+import MerlinChat from "./MerlinChat/MerlinChat";
+import Settings from "./Settings/Settings";
 
 import useStore from "./useStore";
 
@@ -602,12 +604,7 @@ function App() {
 
   url.search = params.toString();
 
-  //subscribe store to local storage
-  useStore.subscribe((state) => {
-    localStorage.setItem("myStore", JSON.stringify(state));
-  });
-
-  //useEffect to fetch data from API
+  //useEffect to call all app initialization logic
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
@@ -630,21 +627,15 @@ function App() {
             { name: "main", start: [1, 1], end: [1, 1] },
           ]}
         >
-          <Sidebar gridArea="sidebar" background="brand">
-            <Box pad="medium" gap="small">
-              <Image
-                maxWidth="50px"
-                fit="contain"
-                src="src/assets/merlin-icon.png"
-              />
-            </Box>
-            <MainNavigation />
-          </Sidebar>
+          <MainNavigation />
+
           <Box gridArea="main" pad="small">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/news-library" element={<NewsLibrary />} />
               <Route path="/news-lab" element={<NewsLab />} />
+              <Route path="/chat" element={<MerlinChat />} />
+              <Route path="/setting" element={<MerlinChat />} />
             </Routes>
           </Box>
         </Grid>

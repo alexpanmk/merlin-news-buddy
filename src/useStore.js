@@ -12,19 +12,20 @@ const useStore = create((set) => ({
 
   openAIKey: import.meta.env.VITE_OPENAI_API_KEY,
 
-
   // State for NewsList
   news: [],
-  setNews: (news) => set({ news }),
+  //TODO: shift newsapi fetch to here
+  newsFetch: async (search) => {
+    const response = await fetch(
+      `https://newsapi.org/v2/everything?q=${search}&apiKey=${useStore.getState().newsAPIkey}`
+    );
+    const data = await response.json();
+    useStore.getState().setNews(data.articles);
+  },
+  newsInitialLoad: false,
+  newsInitialLoad: () => set((state) => ({ newsInitialLoad: !state.newsInitialLoad })),
 
-  //State for SavedNews @ NewsLibrary
-  savedNews: [],
-  savedNewsInitialLoad: false,
-  toggleSavedNewsInitialLoad: () => set((state) => ({ savedNewsInitialLoad: !state.savedNewsInitialLoad })),
-  setSavedNews: (savedNews) => set({ savedNews }),
-  addSavedNews: (savedNews) => set((state) => ({ savedNews: [...state.savedNews, savedNews] })),
-  deleteSavedNews: (savedNews) => set((state) => ({ savedNews: state.savedNews.filter((news) => news.id !== savedNews.id) })),
-  updateSavedNews: (savedNews) => set((state) => ({ savedNews: state.savedNews.map((news) => news.id === savedNews.id ? savedNews : news) })),
+  setNews: (news) => set({ news }),
 
   // State for SearchBar
   search: "bitcoin",
@@ -34,7 +35,6 @@ const useStore = create((set) => ({
   newsLibrary: [],
   newsLibraryInitialLoad: false,
   newsLibraryInitialLoad: () => set((state) => ({ newsLibraryInitialLoad: !state.newsLibraryInitialLoad })),
-  toggleNewsLibraryInitialLoad: () => set((state) => ({ newsLibraryInitialLoad: !state.newsLibraryInitialLoad })),
   setNewsLibrary: (newsLibrary) => set({ newsLibrary }),
   
   //State for NewsLab

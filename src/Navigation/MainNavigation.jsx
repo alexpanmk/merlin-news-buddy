@@ -3,19 +3,15 @@ import SidebarButton from "./SidebarButton";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { Avatar, Button, Box, Nav, Stack, Text } from "grommet";
+import { Sidebar, Box, Image, Avatar, Text } from "grommet";
 
 import {
-  Analytics,
+  SettingsOption,
   Chat,
-  Clock,
-  Configure,
   Help,
   Projects,
   Archive,
   Nodes,
-  Split,
-  StatusInfoSmall,
 } from "grommet-icons";
 
 const MainNavigation = () => {
@@ -27,18 +23,31 @@ const MainNavigation = () => {
 
   return (
     <>
-      <StyledLink to="/">
-        <SidebarButton icon={<Projects />} label="Dashboard" />
-      </StyledLink>
-      <StyledLink to="/news-library">
-        <SidebarButton icon={<Archive />} label="News Library" />
-      </StyledLink>
-      <StyledLink to="/news-lab">
-        <SidebarButton icon={<Nodes />} label="News Lab" />
-      </StyledLink>
-      <StyledLink to="/toggle-chat">
-        <SidebarButton icon={<Chat />} label="Toggle Chat" />
-      </StyledLink>
+      <Sidebar gridArea="sidebar" background="brand" pad="medium">
+        <Box pad="medium" gap="small">
+          <Image
+            maxWidth="50px"
+            fit="contain"
+            src="src/assets/merlin-icon.png"
+          />
+        </Box>
+        <StyledLink to="/">
+          <SidebarButton icon={<Projects />} label="Dashboard" />
+        </StyledLink>
+        <StyledLink to="/news-library">
+          <SidebarButton icon={<Archive />} label="News Library" />
+        </StyledLink>
+        <StyledLink to="/news-lab">
+          <SidebarButton icon={<Nodes />} label="News Lab" />
+        </StyledLink>
+        <StyledLink to="/chat">
+          <SidebarButton icon={<Chat />} label="Chat" />
+        </StyledLink>
+
+        <StyledLink to="/setting">
+          <SidebarButton icon={<SettingsOption />} label="Settings" />
+        </StyledLink>
+      </Sidebar>
     </>
   );
 };
