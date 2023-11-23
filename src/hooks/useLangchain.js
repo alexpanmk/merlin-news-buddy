@@ -1,30 +1,34 @@
 //Custom hook for AI logic
 import { useState, useEffect } from 'react';
 import { OpenAI } from 'langchain/llms/openai';
-import { ChatOpenAI } from 'langchain/llms/chatopenai';
+
+//For OpenAI function calls
+import { PromptTemplate } from 'langchain/prompts';
 
 import { HumanMessage } from 'langchain/schema';
 
-function useLangchain() {
-
+const useLangchain=()=> {
+ 
+  const [llms, setLlms] = useState();
 
   useEffect(() => {
     const llms = new OpenAI({
       openAIApiKey: import.meta.env.VITE_OPENAI_API_KEY,
     })
+    setLlms(llms);
   }, []);
   
-  const llmResult= ( message )=> {
+  async function llmPredict(message) {
     const messages = [new HumanMessage({ content: message })];
 
-    const llmResult =  llms.predictMessages(messages);
+    const llmResult =  await llms.predictMessages(messages);
     console.log(llmResult);
+    return llmResult;
 
   }
 
 
-
-  return llmResult;
+  return llmPredict;
 }
 export default useLangchain;
 

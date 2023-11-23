@@ -7,7 +7,7 @@
 import React, { useState, useCallback } from "react";
 
 //ReactFlow stuffs
-import ReactFlow, { Controls, Background } from "reactflow";
+import ReactFlow, { MiniMap, Controls, Background } from "reactflow";
 
 import useRFStore from "../useRFStore";
 import shallow from "zustand/shallow"; //TODO: To read up on shallow
@@ -85,6 +85,7 @@ const NewsLab = () => {
       >
         <Background />
         <Controls />
+        <MiniMap nodeStrokeWidth={3} nodeColor={(n) => "#eee"} />
       </ReactFlow>
     </Box>
   );

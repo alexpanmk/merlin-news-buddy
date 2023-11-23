@@ -2,17 +2,28 @@
 //TODO: Figure Grommet UI for chat
 //DONE: States for chat
 
-import { Box, Button, TextInput } from "grommet";
-
 import { React, useState } from "react";
+import { Header, Box, Button, TextInput } from "grommet";
+
+import useLangchain from "../hooks/useLangchain";
 
 const MerlinChat = () => {
+  //init langchain llmResult
+  const llmPredict = useLangchain();
+
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
   const sendMessage = () => {
-    setMessages([...messages, inputValue]);
-    setInputValue("");
+    const newMessage = "User: " + inputValue + "\n";
+    setMessages([...messages, newMessage]);
+
+    //Append response from OpenAI API
+
+    llmPredict(inputValue).then((response) => {
+      const responseMessage = "Merlin: " + response.content + "\n";
+      setMessages([...messages, responseMessage]); // Append the response message to the messages state
+    });
   };
 
   return (
@@ -31,7 +42,7 @@ const MerlinChat = () => {
           onChange={(event) => setInputValue(event.target.value)}
           onKeyPress={(event) => {
             if (event.key === "Enter") {
-              sendMessage();
+              sendMessage("User");
             }
           }}
         />
