@@ -602,12 +602,7 @@ function App() {
 
   url.search = params.toString();
 
-  //subscribe store to local storage
-  useStore.subscribe((state) => {
-    localStorage.setItem("myStore", JSON.stringify(state));
-  });
-
-  //useEffect to fetch data from API
+  //useEffect to call all app initialization logic
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
