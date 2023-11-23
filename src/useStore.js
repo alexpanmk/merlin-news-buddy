@@ -21,7 +21,7 @@ const useStore = create((set) => ({
     );
     const data = await response.json();
     useStore.getState().setNews(data.articles);
-  }
+  },
   newsInitialLoad: false,
   newsInitialLoad: () => set((state) => ({ newsInitialLoad: !state.newsInitialLoad })),
 

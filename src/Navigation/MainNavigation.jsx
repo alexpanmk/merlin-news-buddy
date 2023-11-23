@@ -25,8 +25,8 @@ const MainNavigation = () => {
       <StyledLink to="/news-lab">
         <SidebarButton icon={<Nodes />} label="News Lab" />
       </StyledLink>
-      <StyledLink to="/toggle-chat">
-        <SidebarButton icon={<Chat />} label="Toggle Chat" />
+      <StyledLink to="/chat">
+        <SidebarButton icon={<Chat />} label="Chat" />
       </StyledLink>
     </>
   );

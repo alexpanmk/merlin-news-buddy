@@ -8,6 +8,7 @@ import MainNavigation from "./Navigation/MainNavigation";
 import Dashboard from "./Dashboard/Dashboard";
 import NewsLibrary from "./NewsLibrary/NewsLibrary";
 import NewsLab from "./NewsLab/NewsLab";
+import MerlinChat from "./MerlinChat/MerlinChat";
 
 import useStore from "./useStore";
 
@@ -640,6 +641,7 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/news-library" element={<NewsLibrary />} />
               <Route path="/news-lab" element={<NewsLab />} />
+              <Route path="/chat" element={<MerlinChat />} />
             </Routes>
           </Box>
         </Grid>
