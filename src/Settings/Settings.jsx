@@ -3,10 +3,28 @@
 //TODO: Air Table Bearer Token and Table Name
 //TODO: Theme mode switcher.
 
+import { TextInput, Box, Button, Heading, Text } from "grommet";
+
 import React from "react";
 
 const Settings = () => {
-  return <div>Settings</div>;
+  return (
+    <>
+      <Box pad="medium" gap="medium">
+        <Heading level="3">Settings</Heading>
+        <Box direction="row" gap="small">
+          <TextInput placeholder="Enter your OpenAI API Key here" />
+        </Box>
+        <Box direction="row" gap="small">
+          <TextInput placeholder="Enter your AirTable Bearer Token here" />
+        </Box>
+        <Box direction="row" gap="small">
+          <TextInput placeholder="Enter your AirTable Table Name here" />
+        </Box>
+        {/* //TODO: Theme mode switcher. */}
+      </Box>
+    </>
+  );
 };
 
 export default Settings;
