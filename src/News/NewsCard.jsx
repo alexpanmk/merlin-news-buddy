@@ -60,7 +60,13 @@ const NewsCard = ({ article }) => {
           }
           hoverIndicator
         />
-        <Button icon={<Link color="plain" />} hoverIndicator />
+        <Button
+          icon={<Link color="plain" />}
+          hoverIndicator
+          onClick={() => {
+            window.open(article.url, "_blank");
+          }}
+        />
       </CardFooter>
     </Card>
   );
