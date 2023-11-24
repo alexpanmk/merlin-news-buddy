@@ -14,13 +14,13 @@ const naturalLanguageSearchSchema = {
   parameters: {
     type: "object",
     properties: {
-      query: {
+      q: {
         type: "string",
         description: "Keywords or phrases to search for in the article title and body.",
       },
-      country: {
+      sources: {
         type: "string",
-        description: "The country to search in",
+        description: "A comma-seperated string of identifiers (maximum 20) for the news sources or blogs you want headlines from.",
       },
       category: {
         type: "string",

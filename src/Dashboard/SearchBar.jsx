@@ -3,6 +3,9 @@ import { Box, TextInput } from "grommet";
 import NewsList from "../News/NewsList";
 import useStore from "../useStore";
 
+//Custom hooks
+import useLangchain from "../hooks/useLangchain";
+
 //Custom styled components
 import { FancySwitch } from "../styles/sharedStyles";
 import { Slider } from "../styles/sharedStyles";
@@ -11,12 +14,32 @@ const SearchBar = () => {
   //For the search bar
   const [searchInput, setSearchInput] = useState("");
 
+  //init langchain function natuaralLanguageSearch
+  const { naturalLanguageSearch } = useLangchain();
+
   //For the search keyword to be fetched
-  const [search, setSearch] = useStore((state) => [
+  const [search, setSearch, newsFetch, AIMode] = useStore((state) => [
     state.search,
     state.setSearch,
+    state.newsFetch,
+    state.AIMode,
   ]);
 
+  //NL Search function
+  function NLSearch(searchInput) {
+    const getSearchParam = naturalLanguageSearch(searchInput)
+      .then((response) => {
+        console.log(typeof response);
+        newsFetch(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  //Handle Search
+  function handleSearch() {
+    AIMode ? NLSearch(searchInput) : newsFetch(searchInput);
+  }
   return (
     <>
       <Box direction="row" gap="small">
@@ -27,12 +50,14 @@ const SearchBar = () => {
           }}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              //TODO: Check AI mode and search accordingly with relevant query
-
-              setSearch(searchInput);
+              handleSearch();
             }
           }}
-          placeholder="Search News..."
+          placeholder={
+            AIMode
+              ? "Merlin is here to help!"
+              : "Type here to search with keywords!"
+          }
           style={{ background: "white", marginBottom: "20px" }}
         />
       </Box>

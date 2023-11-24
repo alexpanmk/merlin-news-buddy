@@ -574,6 +574,7 @@ function App() {
   //useStore
   const [
     setNews,
+    headlinesFetch,
     search,
     setSearch,
     toggleSavedNewsInitialLoad,
@@ -582,6 +583,7 @@ function App() {
     setSavedNews,
   ] = useStore((state) => [
     state.setNews,
+    state.headlinesFetch,
     state.search,
     state.setSearch,
     state.toggleSavedNewsInitialLoad,
@@ -608,28 +610,22 @@ function App() {
   //useEffect to call all app initialization logic
   useEffect(() => {
     //TODO: Load Headlines
+    headlinesFetch();
     //TODO: Load Saved News
-
-    //Event listener for beforeunload to save state to airtable
-    window.addEventListener("beforeunload", beforeUnload);
-
-    //clean up function for beforeunload event listener
-    return () => {
-      window.removeEventListener("beforeunload", beforeUnload);
-    };
   }, []);
 
   //useEffect to fetch news from NewsAPI when search param changes
+
   //TODO: Invoke as useStore effect
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setNews(data.articles);
-        console.log(data.articles);
-      })
-      .catch((error) => console.log(error));
-  }, [search]);
+  // useEffect(() => {
+  //   fetch(url)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setNews(data.articles);
+  //       console.log(data.articles);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }, [search]);
 
   return (
     <>
