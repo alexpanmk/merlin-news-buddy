@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react';
 import { OpenAI } from 'langchain/llms/openai';
 import { ChatOpenAI } from "langchain/chat_models/openai";
 
-//For OpenAI function calls
-import { PromptTemplate } from 'langchain/prompts';
+//API key store
+import useStore from '../useStore';
 
+//For OpenAI function calls
 import { HumanMessage } from 'langchain/schema';
 
 const naturalLanguageSearchSchema = {
@@ -53,18 +54,20 @@ const useLangchain=()=> {
   const [llms, setLlms] = useState();
   const [functionCallLlm, setFunctionCallLlm] = useState();
 
+  const openAIApiKey = useStore((state) => state.openAIApiKey);
+
   useEffect(() => {
 
     //init OpenAI instance for normal completion
     const llms = new OpenAI({
-      openAIApiKey: import.meta.env.VITE_OPENAI_API_KEY,
+      openAIApiKey: openAIApiKey,
     })
     setLlms(llms);
 
     //init OpenAI instance for natural language search
     const llms2 = new ChatOpenAI({
       modelName: "gpt-4",
-      openAIApiKey: import.meta.env.VITE_OPENAI_API_KEY,
+      openAIApiKey: openAIApiKey,
     }).bind({
       functions: [naturalLanguageSearchSchema],
       function_call: { name: "nl-search" },
