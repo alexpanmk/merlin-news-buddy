@@ -604,7 +604,21 @@ function App() {
 
   url.search = params.toString();
 
+  function beforeUnload() {
+    console.log("beforeUnload");
+  }
+
   //useEffect to call all app initialization logic
+  useEffect(() => {
+    //Event listener for beforeunload to save state to airtable
+    window.addEventListener("beforeunload", beforeUnload);
+
+    //clean up function for beforeunload event listener
+    return () => {
+      window.removeEventListener("beforeunload", beforeUnload);
+    };
+  }, []);
+
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
