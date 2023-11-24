@@ -71,7 +71,11 @@ const NewsLab = () => {
 
   return (
     <Box height={"100%"} width={"100%"} background={"white"}>
-      <ToolKit addCategoryNode={addCategoryNode} />
+      <ToolKit
+        addCategoryNode={addCategoryNode}
+        nodes={nodes}
+        addNode={addNode}
+      />
       <ReactFlow
         nodes={nodes}
         onNodesChange={onNodesChange}

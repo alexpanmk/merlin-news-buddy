@@ -4,7 +4,7 @@ import { Box, Tab, Tabs } from "grommet";
 import AddCategory from "./AddCategory";
 import AskMerlin from "./AskMerlin";
 
-const ToolKit = ({ addCategoryNode }) => {
+const ToolKit = ({ addCategoryNode, nodes, addNode }) => {
   return (
     <>
       <Box gridArea="main" pad="small">
@@ -13,7 +13,7 @@ const ToolKit = ({ addCategoryNode }) => {
             <AddCategory addCategoryNode={addCategoryNode} />
           </Tab>
           <Tab title="Ask Merlin">
-            <AskMerlin />
+            <AskMerlin nodes={nodes} addNode={addNode} />
           </Tab>
         </Tabs>
       </Box>
