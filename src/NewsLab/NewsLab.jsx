@@ -1,6 +1,7 @@
 // Note: NewsLab component
 // TODO: Right click for new category node
-// TODO: Function to create new category node
+// DONE: Function to create new category node
+// TODO: Function to delete category node (On Key press?)
 // TODO: Category node to encapsulate a component which allows editing and deleting of category
 // UseLocalstorage to save lab state
 
