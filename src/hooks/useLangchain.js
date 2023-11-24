@@ -16,7 +16,7 @@ const naturalLanguageSearchSchema = {
     properties: {
       query: {
         type: "string",
-        description: "The search query",
+        description: "Keywords or phrases to search for in the article title and body.",
       },
       country: {
         type: "string",
@@ -26,6 +26,23 @@ const naturalLanguageSearchSchema = {
         type: "string",
         description: "The category to search in",
       },
+      domains: {
+        type: "string",
+        description: "A comma-seperated string of domains (eg bbc.co.uk, techcrunch.com, engadget.com) to restrict the search to.",
+      },
+      language: {
+        type: "string",
+        description: "The 2-letter ISO-639-1 code of the language you want to get headlines for. Possible options: ar,de,en,es,fr,he,it,nl,no,pt,ru,sv,ud,zh.",
+      },
+      from: {
+        type: "string",
+        description: " date and optional time for the oldest article allowed. This should be in ISO 8601 format",
+      },
+      to: {
+        type: "string",
+        description: "A date and optional time for the newest article allowed. This should be in ISO 8601 format",
+      },
+
     },
   }
 }
@@ -68,15 +85,17 @@ const useLangchain=()=> {
   //function for natural language search (Dashboard)
   async function naturalLanguageSearch(query) {
     const llmResult = await functionCallLlm.invoke([new HumanMessage(query)]);
-    console.log(llmResult);
-    return llmResult;
+    
+    //Extract search arguments from function call
+    const searchArguments = JSON.parse(llmResult.additional_kwargs.function_call.arguments);
+
+    return searchArguments;
+
   }
 
-  //To parse the function call JSON data from OpenAI (specifically for natural language search)
-  function parseFunctionCallData(data) {
-    const argsObject = JSON.parse(data.kwargs.additional_kwargs.function_call.arguments);
-    
-  }
+  
+
+  
 
 
   return { llmPredict, naturalLanguageSearch };
