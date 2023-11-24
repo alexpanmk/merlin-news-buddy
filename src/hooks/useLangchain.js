@@ -72,6 +72,12 @@ const useLangchain=()=> {
     return llmResult;
   }
 
+  //To parse the function call JSON data from OpenAI (specifically for natural language search)
+  function parseFunctionCallData(data) {
+    const argsObject = JSON.parse(data.kwargs.additional_kwargs.function_call.arguments);
+    
+  }
+
 
   return { llmPredict, naturalLanguageSearch };
 }

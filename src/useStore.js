@@ -24,7 +24,6 @@ const useStore = create((set) => ({
   },
   newsInitialLoad: false,
   newsInitialLoad: () => set((state) => ({ newsInitialLoad: !state.newsInitialLoad })),
-
   setNews: (news) => set({ news }),
 
   // State for SearchBar
