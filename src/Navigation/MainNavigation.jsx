@@ -50,6 +50,6 @@ const MainNavigation = () => {
       </Sidebar>
     </>
   );
-};\
+};
 
 export default MainNavigation;
