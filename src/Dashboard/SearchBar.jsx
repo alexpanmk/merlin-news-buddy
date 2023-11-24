@@ -6,10 +6,6 @@ import useStore from "../useStore";
 //Custom hooks
 import useLangchain from "../hooks/useLangchain";
 
-//Custom styled components
-import { FancySwitch } from "../styles/sharedStyles";
-import { Slider } from "../styles/sharedStyles";
-
 const SearchBar = () => {
   //For the search bar
   const [searchInput, setSearchInput] = useState("");
@@ -18,9 +14,7 @@ const SearchBar = () => {
   const { naturalLanguageSearch } = useLangchain();
 
   //For the search keyword to be fetched
-  const [search, setSearch, newsFetch, AIMode] = useStore((state) => [
-    state.search,
-    state.setSearch,
+  const [newsFetch, AIMode] = useStore((state) => [
     state.newsFetch,
     state.AIMode,
   ]);
@@ -29,7 +23,6 @@ const SearchBar = () => {
   function NLSearch(searchInput) {
     const getSearchParam = naturalLanguageSearch(searchInput)
       .then((response) => {
-        console.log(typeof response);
         newsFetch(response);
       })
       .catch((error) => {

@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import "./App.css";
 
@@ -603,29 +601,12 @@ function App() {
 
   url.search = params.toString();
 
-  function beforeUnload() {
-    console.log("beforeUnload");
-  }
-
   //useEffect to call all app initialization logic
   useEffect(() => {
     //TODO: Load Headlines
     headlinesFetch();
     //TODO: Load Saved News
   }, []);
-
-  //useEffect to fetch news from NewsAPI when search param changes
-
-  //TODO: Invoke as useStore effect
-  // useEffect(() => {
-  //   fetch(url)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setNews(data.articles);
-  //       console.log(data.articles);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, [search]);
 
   return (
     <>

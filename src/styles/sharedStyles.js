@@ -1,4 +1,4 @@
-//shared styles library for custom styling of components
+//shared styles library for custom styling of components - not used at the moment
 import styled, { css } from "styled-components";
 
 export const FancySwitch = styled.div`
