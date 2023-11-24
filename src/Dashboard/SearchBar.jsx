@@ -3,6 +3,10 @@ import { Box, TextInput } from "grommet";
 import NewsList from "../News/NewsList";
 import useStore from "../useStore";
 
+//Custom styled components
+import { FancySwitch } from "../styles/sharedStyles";
+import { Slider } from "../styles/sharedStyles";
+
 const SearchBar = () => {
   //For the search bar
   const [searchInput, setSearchInput] = useState("");
@@ -15,19 +19,21 @@ const SearchBar = () => {
 
   return (
     <>
-      <TextInput
-        value={searchInput}
-        onChange={(e) => {
-          setSearchInput(e.target.value);
-        }}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            setSearch(searchInput);
-          }
-        }}
-        placeholder="Search News..."
-        style={{ background: "white", marginBottom: "20px" }}
-      />
+      <Box direction="row" gap="small">
+        <TextInput
+          value={searchInput}
+          onChange={(e) => {
+            setSearchInput(e.target.value);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setSearch(searchInput);
+            }
+          }}
+          placeholder="Search News..."
+          style={{ background: "white", marginBottom: "20px" }}
+        />
+      </Box>
     </>
   );
 };
