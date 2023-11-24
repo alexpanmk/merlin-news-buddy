@@ -62,7 +62,7 @@ const useAirtableCRUD = (baseId, tableName) => {
       },
     });
 
-    const newData = data.filter((record) => record.id !== id);
+    const newData = data.filter((record) => record.id !== id); //TODO: To use this for component state instead
     setData(newData);
     
   };
