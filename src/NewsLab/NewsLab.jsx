@@ -6,6 +6,7 @@
 // TODO: UseLocalstorage to save lab state
 
 import React, { useState, useCallback } from "react";
+import ToolKit from "./ToolKit";
 
 //ReactFlow stuffs
 import ReactFlow, { MiniMap, Controls, Background } from "reactflow";
@@ -70,7 +71,7 @@ const NewsLab = () => {
 
   return (
     <Box height={"100%"} width={"100%"} background={"white"}>
-      <AddCategory addCategoryNode={addCategoryNode} />
+      <ToolKit addCategoryNode={addCategoryNode} />
       <ReactFlow
         nodes={nodes}
         onNodesChange={onNodesChange}
