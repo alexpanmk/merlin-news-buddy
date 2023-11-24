@@ -2,6 +2,9 @@
 import { React, useState } from "react";
 import { Box, Button, TextInput } from "grommet";
 
+//Styled components
+import { FancyButton } from "../styles/sharedStyles";
+
 const AddCategory = ({ addCategoryNode }) => {
   const [inputValue, setInputValue] = useState("");
 
@@ -22,6 +25,7 @@ const AddCategory = ({ addCategoryNode }) => {
               addCategoryNode(inputValue);
             }}
           />
+
           <Button
             label="Clear"
             onClick={() => {
