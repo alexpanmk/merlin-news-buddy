@@ -75,6 +75,7 @@ const NewsLab = () => {
         nodes={nodes}
         onNodesChange={onNodesChange}
         onClick={(event) => {
+          // Mouse click to add node
           // const mouseX = event.clientX;
           // const mouseY = event.clientY;
           // const { flowX, flowY } = screenToFlowPosition(mouseX, mouseY);

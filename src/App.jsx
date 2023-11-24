@@ -628,7 +628,7 @@ function App() {
               <Route path="/news-library" element={<NewsLibrary />} />
               <Route path="/news-lab" element={<NewsLab />} />
               <Route path="/chat" element={<MerlinChat />} />
-              <Route path="/setting" element={<MerlinChat />} />
+              <Route path="/setting" element={<Settings />} />
             </Routes>
           </Box>
         </Grid>
