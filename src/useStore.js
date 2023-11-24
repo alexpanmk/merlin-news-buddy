@@ -5,9 +5,9 @@ import useAirtableCRUD from "./hooks/useAirtableCRUD";
 const useStore = create((set) => ({
 
   // State for environment variables
-  newsAPIkey: "import.meta.env.VITE_NEWS_API_KEY",
+  newsAPIkey: "",
   setNewsAPIkey: (newsAPIkey) => set({ newsAPIkey }),
-  openAIKey: "import.meta.env.VITE_OPENAI_API_KEY",
+  openAIKey: "",
   setOpenAIKey: (openAIKey) => set({ openAIKey }),
   airtableBase: import.meta.env.VITE_AIRTABLE_BASE,
   setAirtableBase: (airtableBase) => set({ airtableBase }),

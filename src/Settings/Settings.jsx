@@ -30,7 +30,7 @@ const Settings = () => {
             label="Save"
             onClick={() => {
               setOpenAIKey(openAIKeyInput);
-              setNewsAPIKey(newsAPIKeyInput);
+              // setNewsAPIKey(newsAPIKeyInput);
             }}
           />
           <Button

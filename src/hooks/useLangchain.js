@@ -54,20 +54,20 @@ const useLangchain=()=> {
   const [llms, setLlms] = useState();
   const [functionCallLlm, setFunctionCallLlm] = useState();
 
-  const openAIApiKey = useStore((state) => state.openAIApiKey);
+  // const openAIApiKey = useStore((state) => state.openAIApiKey);
 
   useEffect(() => {
 
     //init OpenAI instance for normal completion
     const llms = new OpenAI({
-      openAIApiKey: openAIApiKey,
+      openAIApiKey: import.meta.env.VITE_OPENAI_API_KEY,
     })
     setLlms(llms);
 
     //init OpenAI instance for natural language search
     const llms2 = new ChatOpenAI({
       modelName: "gpt-4",
-      openAIApiKey: openAIApiKey,
+      openAIApiKey: import.meta.env.VITE_OPENAI_API_KEY,
     }).bind({
       functions: [naturalLanguageSearchSchema],
       function_call: { name: "nl-search" },
