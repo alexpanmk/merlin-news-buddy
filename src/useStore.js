@@ -15,12 +15,23 @@ const useStore = create((set) => ({
   // State for NewsList
   news: [],
   //TODO: shift newsapi fetch to here
-  newsFetch: async (search) => {
-    const response = await fetch(
-      `https://newsapi.org/v2/everything?q=${search}&apiKey=${useStore.getState().newsAPIkey}`
-    );
-    const data = await response.json();
-    useStore.getState().setNews(data.articles);
+  newsFetch: async (searchParam) => {
+    //TODO: Use searchPArams instead of string interpolation
+    const url = new URL("https://newsapi.org/v2/everything");
+    
+    const params = new URLSearchParams({
+      ...searchParam, //concatenate searchParam to params
+      apiKey: import.meta.env.VITE_NEWSAPI_API_KEY,
+      pageSize: 12,
+    });
+  
+    url.search = params.toString();
+
+    // const response = await fetch(
+    //   `https://newsapi.org/v2/everything?q=${search}&apiKey=${useStore.getState().newsAPIkey}`
+    // );
+    // const data = await response.json();
+    // useStore.getState().setNews(data.articles);
   },
   newsInitialLoad: false,
   newsInitialLoad: () => set((state) => ({ newsInitialLoad: !state.newsInitialLoad })),
@@ -40,6 +51,9 @@ const useStore = create((set) => ({
   newsLabNodes: [],
   setNewsLabNodes: (newsLabNodes) => set({ newsLabNodes }),
   
+  //State for settings
+  AIMode: true,
+  toggleAIMode: () => set((state) => ({ AIMode: !state.AIMode })),
 
 
 }));

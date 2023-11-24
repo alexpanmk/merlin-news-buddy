@@ -607,6 +607,9 @@ function App() {
 
   //useEffect to call all app initialization logic
   useEffect(() => {
+    //TODO: Load Headlines
+    //TODO: Load Saved News
+
     //Event listener for beforeunload to save state to airtable
     window.addEventListener("beforeunload", beforeUnload);
 
@@ -616,6 +619,8 @@ function App() {
     };
   }, []);
 
+  //useEffect to fetch news from NewsAPI when search param changes
+  //TODO: Invoke as useStore effect
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())

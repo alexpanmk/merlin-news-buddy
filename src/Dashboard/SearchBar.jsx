@@ -27,6 +27,8 @@ const SearchBar = () => {
           }}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
+              //TODO: Check AI mode and search accordingly with relevant query
+
               setSearch(searchInput);
             }
           }}
