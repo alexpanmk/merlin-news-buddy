@@ -16,4 +16,5 @@ Deployment Link - https://merlin-news-buddy.vercel.app/
 
 - Tooltip for insights on mouse hover
 - loading spinner
-- News scraping / Chrome extens
+- News scraping / Chrome extension
+- Error Handling
