@@ -19,9 +19,10 @@ const useStore = create((set) => ({
   // State for NewsList
   news: [],
 
+
   //TODO:Sample news for testing
   sampleNews: sampleNews,
-  fetchSampleNews: () => set({ news: sampleNews }),
+  fetchSampleNews: () => useStore.getState().setNews(sampleNews.articles),
   
   //TODO: Fetch headlines from newsapi
   headlinesFetch: async () => {
@@ -70,7 +71,7 @@ const useStore = create((set) => ({
   newsInitialLoad: false,
   newsInitialLoad: () => set((state) => ({ newsInitialLoad: !state.newsInitialLoad })),
   setNews: (news) => set({ news }),
-
+  
   // State for SearchBar
   search: "bitcoin",
   setSearch: (search) => set({ search }),

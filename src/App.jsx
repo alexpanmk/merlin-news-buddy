@@ -571,12 +571,15 @@ function App() {
 
   //useEffect to call all app initialization logic
   useEffect(() => {
-    const vercelMode = import.meta.env.VITE_VERCEL_MODE;
+    const vercelMode = import.meta.env.VERCEL_MODE;
+    console.log("Vercel Mode: ", vercelMode);
+
+    fetchSampleNews(); //temporary for vercel deployment
 
     // vercelMode ? headlinesFetch() : fetchSampleNews();
 
     //DONE: Load Headlines
-    headlinesFetch();
+    // headlinesFetch();
     //TODO: Load Saved News
   }, []);
 
