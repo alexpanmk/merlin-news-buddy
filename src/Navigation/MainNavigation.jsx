@@ -28,7 +28,7 @@ const MainNavigation = () => {
           <Image
             maxWidth="50px"
             fit="contain"
-            src="src/assets/merlin-icon.png"
+            src="../src/assets/merlin-icon.png"
           />
         </Box>
         <StyledLink to="/">

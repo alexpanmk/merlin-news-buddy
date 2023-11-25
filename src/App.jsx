@@ -11,30 +11,7 @@ import Settings from "./Settings/Settings";
 
 import useStore from "./useStore";
 
-//Hooks
-import useAirtableCRUD from "./hooks/useAirtableCRUD";
-
-import {
-  Grommet,
-  Button,
-  Page,
-  PageContent,
-  Header,
-  Text,
-  Menu,
-  PageHeader,
-  Grid,
-  Card,
-  CardHeader,
-  CardBody,
-  Stack,
-  Meter,
-  Box,
-  Image,
-  Sidebar,
-  Avatar,
-  TextInput,
-} from "grommet";
+import { Grommet, Grid, Box } from "grommet";
 
 const themeMerlin = {
   name: "Theme-Merlin",
@@ -573,6 +550,7 @@ function App() {
   const [
     setNews,
     headlinesFetch,
+    fetchSampleNews,
     search,
     setSearch,
     toggleSavedNewsInitialLoad,
@@ -582,6 +560,7 @@ function App() {
   ] = useStore((state) => [
     state.setNews,
     state.headlinesFetch,
+    state.fetchSampleNews,
     state.search,
     state.setSearch,
     state.toggleSavedNewsInitialLoad,
@@ -590,20 +569,13 @@ function App() {
     state.setSavedNews,
   ]);
 
-  //Parameters for NewsAPI
-  const url = new URL("https://newsapi.org/v2/everything");
-
-  const params = new URLSearchParams({
-    apiKey: import.meta.env.VITE_NEWSAPI_API_KEY,
-    q: search,
-    pageSize: 12,
-  });
-
-  url.search = params.toString();
-
   //useEffect to call all app initialization logic
   useEffect(() => {
-    //TODO: Load Headlines
+    const vercelMode = import.meta.env.VITE_VERCEL_MODE;
+
+    // vercelMode ? headlinesFetch() : fetchSampleNews();
+
+    //DONE: Load Headlines
     headlinesFetch();
     //TODO: Load Saved News
   }, []);
