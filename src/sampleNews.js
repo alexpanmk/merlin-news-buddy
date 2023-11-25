@@ -68,3 +68,5 @@ const sampleNews = {
         "content": "Namthip Muanthongthae/Getty Images\r\n<ul>\n<li>The supply of available bitcoin to trade on crypto exchanges is at its lowest level in five years.</li>\n<li>That could set up a supply shock with potentia… [+1845 chars]"
       }]
 }
+
+export default sampleNews;

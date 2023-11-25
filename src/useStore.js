@@ -1,6 +1,6 @@
 import create from "zustand";
 import useAirtableCRUD from "./hooks/useAirtableCRUD";
-
+import sampleNews from "./sampleNews"
 
 const useStore = create((set) => ({
 
@@ -12,10 +12,16 @@ const useStore = create((set) => ({
   airtableBase: import.meta.env.VITE_AIRTABLE_BASE,
   setAirtableBase: (airtableBase) => set({ airtableBase }),
 
+
+
   openAIKey: import.meta.env.VITE_OPENAI_API_KEY,
 
   // State for NewsList
   news: [],
+
+  //TODO:Sample news for testing
+  sampleNews: sampleNews,
+  fetchSampleNews: () => set({ news: sampleNews }),
   
   //TODO: Fetch headlines from newsapi
   headlinesFetch: async () => {
