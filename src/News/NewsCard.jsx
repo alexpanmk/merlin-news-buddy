@@ -3,24 +3,6 @@ import { Button, Card, CardBody, CardHeader, CardFooter, Text } from "grommet";
 import { Save, Link } from "grommet-icons";
 import useAirtableCRUD from "../hooks/useAirtableCRUD";
 
-const handleSaveNews = () => {
-  console.log("click");
-
-  const newRecord = {
-    records: [
-      {
-        fields: {
-          newsTitle: "NewRecord",
-          newsDescription: "SampleDescription",
-          scrapedContent: "Sample scraped content ",
-          tagged: "Sample Tags",
-          comment: "Comments",
-        },
-      },
-    ],
-  };
-};
-
 const NewsCard = ({ article }) => {
   const { createRecord } = useAirtableCRUD(
     import.meta.env.VITE_AIRTABLE_BASE_ID,
@@ -52,6 +34,7 @@ const NewsCard = ({ article }) => {
                   newsTitle: article.title,
                   newsDescription: article.description,
                   scrapedContent: article.content,
+                  link: article.url,
                   tagged: "Sample Tags",
                   comment: "Comments",
                 });

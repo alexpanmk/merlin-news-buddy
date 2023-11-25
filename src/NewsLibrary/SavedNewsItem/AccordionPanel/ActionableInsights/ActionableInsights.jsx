@@ -2,8 +2,6 @@ import { useState, React } from "react";
 import InsightsInputBox from "./InsightsInputBox";
 import { Box } from "grommet";
 
-// import { updateRecord } from "../../../hooks/useAirtableCRUD";
-
 const ActionableInsights = ({ news, updateRecord }) => {
   const [inputValue, setInputValue] = useState(news.fields.comment);
 

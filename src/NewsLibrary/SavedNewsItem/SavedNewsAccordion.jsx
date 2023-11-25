@@ -61,6 +61,13 @@ const SavedNewsAccordion = () => {
                       addNode(newNode);
                     }}
                   />
+                  <Button
+                    pad={"10"}
+                    label="Open News"
+                    onClick={() => {
+                      window.open(news.fields.link);
+                    }}
+                  />
                 </Box>
               </Tab>
               <Tab title="Content"></Tab>

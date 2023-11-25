@@ -1,17 +1,6 @@
 import React from "react";
 
-import { Avatar, Button, Box, Nav, Stack, Text } from "grommet";
-
-import {
-  Analytics,
-  Chat,
-  Clock,
-  Configure,
-  Help,
-  Projects,
-  Split,
-  StatusInfoSmall,
-} from "grommet-icons";
+import { Button, Box } from "grommet";
 
 const SidebarButton = ({ icon, label, ...rest }) => {
   return (

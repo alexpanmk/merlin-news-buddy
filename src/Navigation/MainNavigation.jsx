@@ -40,9 +40,9 @@ const MainNavigation = () => {
         <StyledLink to="/news-lab">
           <SidebarButton icon={<Nodes />} label="News Lab" />
         </StyledLink>
-        <StyledLink to="/chat">
+        {/* <StyledLink to="/chat">
           <SidebarButton icon={<Chat />} label="Chat" />
-        </StyledLink>
+        </StyledLink> */}
 
         <StyledLink to="/setting">
           <SidebarButton icon={<SettingsOption />} label="Settings" />

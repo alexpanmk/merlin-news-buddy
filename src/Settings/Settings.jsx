@@ -1,27 +1,46 @@
-//Settings for API keys and theme modes (dark/light)
+//Settings for API key
 //TODO: OpenAI API key / To fall back on normal search and disable chat if OpenAI API key is not available.
-//TODO: Air Table Bearer Token and Table Name
 //TODO: Theme mode switcher.
-
-import { TextInput, Box, Button, Heading, Text } from "grommet";
-
-import React from "react";
+import { React, useState } from "react";
+import { Button, TextInput, Box, Heading, Text } from "grommet";
+import useStore from "../useStore";
 
 const Settings = () => {
+  const [openAIKeyInput, setOpenAIKeyInput] = useState("");
+  const [newsAPIKeyInput, setNewsAPIKeyInput] = useState("");
+
+  const [setNewsAPIKey, setOpenAIKey] = useStore((state) => [
+    state.setNewsAPIKey,
+    state.setOpenAIKey,
+  ]);
+
   return (
     <>
-      <Box pad="medium" gap="medium">
+      <Box height={"100%"} pad="medium" gap="medium" background={"white"}>
         <Heading level="3">Settings</Heading>
+        <Text>API Keys</Text>
         <Box direction="row" gap="small">
           <TextInput placeholder="Enter your OpenAI API Key here" />
         </Box>
         <Box direction="row" gap="small">
-          <TextInput placeholder="Enter your AirTable Bearer Token here" />
+          <TextInput placeholder="Enter your NewsAPI API Key here" />
         </Box>
         <Box direction="row" gap="small">
-          <TextInput placeholder="Enter your AirTable Table Name here" />
+          <Button
+            label="Save"
+            onClick={() => {
+              setOpenAIKey(openAIKeyInput);
+              // setNewsAPIKey(newsAPIKeyInput);
+            }}
+          />
+          <Button
+            label="Clear"
+            onClick={() => {
+              setOpenAIKeyInput("");
+              setNewsAPIKeyInput("");
+            }}
+          />
         </Box>
-        {/* //TODO: Theme mode switcher. */}
       </Box>
     </>
   );

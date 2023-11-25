@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import "./App.css";
 
@@ -571,12 +569,10 @@ const themeMerlin = {
 };
 
 function App() {
-  //Top level react states for reactflow (temporary)
-  const [allNodes, setAllNodes] = useState([]);
-
   //useStore
   const [
     setNews,
+    headlinesFetch,
     search,
     setSearch,
     toggleSavedNewsInitialLoad,
@@ -585,6 +581,7 @@ function App() {
     setSavedNews,
   ] = useStore((state) => [
     state.setNews,
+    state.headlinesFetch,
     state.search,
     state.setSearch,
     state.toggleSavedNewsInitialLoad,
@@ -606,14 +603,10 @@ function App() {
 
   //useEffect to call all app initialization logic
   useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setNews(data.articles);
-        console.log(data.articles);
-      })
-      .catch((error) => console.log(error));
-  }, [search]);
+    //TODO: Load Headlines
+    headlinesFetch();
+    //TODO: Load Saved News
+  }, []);
 
   return (
     <>
@@ -635,7 +628,7 @@ function App() {
               <Route path="/news-library" element={<NewsLibrary />} />
               <Route path="/news-lab" element={<NewsLab />} />
               <Route path="/chat" element={<MerlinChat />} />
-              <Route path="/setting" element={<MerlinChat />} />
+              <Route path="/setting" element={<Settings />} />
             </Routes>
           </Box>
         </Grid>

@@ -7,13 +7,18 @@ const AddCategory = ({ addCategoryNode }) => {
 
   return (
     <>
-      <Box pad="medium">
+      <Box pad={"small"}>
         <Box direction="row" gap="small">
           <TextInput
             placeholder="Type here to add a category post-it!"
             value={inputValue}
             onChange={(evt) => {
               setInputValue(evt.target.value);
+            }}
+            onKeyDown={(evt) => {
+              if (evt.key === "Enter") {
+                addCategoryNode(inputValue);
+              }
             }}
           />
           <Button
@@ -22,6 +27,7 @@ const AddCategory = ({ addCategoryNode }) => {
               addCategoryNode(inputValue);
             }}
           />
+
           <Button
             label="Clear"
             onClick={() => {

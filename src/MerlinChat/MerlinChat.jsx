@@ -9,7 +9,7 @@ import useLangchain from "../hooks/useLangchain";
 
 const MerlinChat = () => {
   //init langchain llmResult
-  const llmPredict = useLangchain();
+  const { llmPredict, naturalLanguageSearch } = useLangchain();
 
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -20,7 +20,7 @@ const MerlinChat = () => {
 
     //Append response from OpenAI API
 
-    llmPredict(inputValue).then((response) => {
+    naturalLanguageSearch(inputValue).then((response) => {
       const responseMessage = "Merlin: " + response.content + "\n";
       setMessages([...messages, responseMessage]); // Append the response message to the messages state
     });

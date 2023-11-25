@@ -1,10 +1,12 @@
 // Note: NewsLab component
 // TODO: Right click for new category node
-// TODO: Function to create new category node
+// DONE: Function to create new category node
+// TODO: Function to delete category node (On Key press?)
 // TODO: Category node to encapsulate a component which allows editing and deleting of category
-// UseLocalstorage to save lab state
+// TODO: UseLocalstorage to save lab state
 
 import React, { useState, useCallback } from "react";
+import ToolKit from "./ToolKit";
 
 //ReactFlow stuffs
 import ReactFlow, { MiniMap, Controls, Background } from "reactflow";
@@ -69,11 +71,16 @@ const NewsLab = () => {
 
   return (
     <Box height={"100%"} width={"100%"} background={"white"}>
-      <AddCategory addCategoryNode={addCategoryNode} />
+      <ToolKit
+        addCategoryNode={addCategoryNode}
+        nodes={nodes}
+        addNode={addNode}
+      />
       <ReactFlow
         nodes={nodes}
         onNodesChange={onNodesChange}
         onClick={(event) => {
+          // Mouse click to add node
           // const mouseX = event.clientX;
           // const mouseY = event.clientY;
           // const { flowX, flowY } = screenToFlowPosition(mouseX, mouseY);

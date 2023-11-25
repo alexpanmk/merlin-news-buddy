@@ -5,7 +5,7 @@ import { Grid } from "grommet";
 import useStore from "../useStore";
 
 const NewsList = () => {
-  const [news, setNews] = useStore((state) => [state.news, state.setNews]);
+  const [news] = useStore((state) => [state.news, state.setNews]);
 
   return (
     <>

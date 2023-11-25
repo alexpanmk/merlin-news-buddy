@@ -4,7 +4,6 @@ import {
     applyNodeChanges,
     applyEdgeChanges,
 } from 'reactflow';
-import { useLocalStorage } from '@uidotdev/usehooks';
 
 // import initialNodes from './nodes';
 // import initialEdges from './edges';
@@ -57,8 +56,5 @@ const useRFStore = create((set, get) => ({
     },
 }));
 
-// useRFStore.subscribe(
-//     localStorage.setItem('nodes', JSON.stringify(useRFStore.getState().nodes))
-// );
 
 export default useRFStore;
