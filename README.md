@@ -12,6 +12,10 @@ Trello Board Link - https://trello.com/invite/b/fw12vwHR/ATTIf44bd57a5897b17d68e
 
 Deployment Link - https://merlin-news-buddy.vercel.app/
 
+# Screenshots
+
+./src/assets/screenshots/ss0.png
+
 # Next steps
 
 - Tooltip for insights on mouse hover
