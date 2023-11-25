@@ -8,3 +8,5 @@ ReactJS, Zustand, OpenAI, LangChain, HTML5, CSS, Grommet (React CSSframework)
 Getting Started:
 
 Trello Board Link - https://trello.com/invite/b/fw12vwHR/ATTIf44bd57a5897b17d68e840b42e3ba9ed59665A28/alex-project-2-merlin
+
+Deployment Link - https://merlin-news-buddy.vercel.app/
